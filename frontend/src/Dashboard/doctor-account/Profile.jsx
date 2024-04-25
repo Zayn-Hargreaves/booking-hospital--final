@@ -80,7 +80,7 @@ const Profile = ({ doctorData }) => {
         e.preventDefault();
         // Logic to update profile
         try {
-            const res = await fetch(`http://localhost:5000/api/v1/doctors/${doctorData._id}`, {
+            const res = await fetch(`https://booking-hospital-final.onrender.com/api/v1/doctors/${doctorData._id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

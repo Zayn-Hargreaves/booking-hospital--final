@@ -11,13 +11,13 @@ const MyAccount = () => {
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" })
     }
-    const { data: userData, loading, error } = useGetProfile(`http://localhost:5000/api/v1/users/profile/me`)
+    const { data: userData, loading, error } = useGetProfile(`https://booking-hospital-final.onrender.com/api/v1/users/profile/me`)
     const [tab, setTab] = useState('bookings')
     const handleDeleteAcount = async () => {
         const confirmDelete = window.confirm("Bạn có chắc chắn muốn xóa tài khoản không?");
         if (confirmDelete) {
             try {
-                const response = await fetch(`http://localhost:5000/api/v1/users/${userData._id}`, {
+                const response = await fetch(`https://booking-hospital-final.onrender.com/api/v1/users/${userData._id}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': `Bearer ${token}`, // Add authorization header if needed

@@ -18,7 +18,7 @@ const Doctors = () => {
         }, 700)
         return () => clearTimeout(timeout)
     }, [query])
-    const { data:doctors, loading, error } = useFetchData(`http://localhost:5000/api/v1/doctors?query=${debounceQuery}`)
+    const { data:doctors, loading, error } = useFetchData(`https://booking-hospital-final.onrender.com/api/v1/doctors?query=${debounceQuery}`)
     return <>
         <section className="bg-[#fff9ea]">
             <div className="container text-center">

@@ -32,7 +32,7 @@ const Signup = () => {
         event.preventDefault();
         setLoading(true);
         try {
-            const res = await fetch(`http://localhost:5000/api/v1/auth/register`,{
+            const res = await fetch(`https://booking-hospital-final.onrender.com/api/v1/auth/register`,{
                 method:'post',
                 headers:{
                     'Content-Type':'application/json'

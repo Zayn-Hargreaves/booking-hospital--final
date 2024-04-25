@@ -5,7 +5,7 @@ import { toast } from "react-toastify"
 const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
     const bookingHandler = async () => {
         try {
-            const res = await fetch(`http://localhost:5000/api/v1/bookings/checkout-section/${doctorId}`, {
+            const res = await fetch(`https://booking-hospital-final.onrender.com/api/v1/bookings/checkout-section/${doctorId}`, {
                 method: "post",
                 headers: {
                     Authorization: `Bearer ${token}`

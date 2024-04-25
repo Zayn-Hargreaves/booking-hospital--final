@@ -14,7 +14,7 @@ export const getCheckoutSession = async(req, res) =>{
             mode:'payment',
             success_url:`http://localhost:5173/checkout-success`,
             cancel_url:`${req.protocol}://${req.get('host')}/doctors/${doctor._id}`,
-            customer_email:user.email,
+            customer_email:user?.email ? user.email : '',
             client_reference_id:req.params.doctorId,
             line_items:[
                 {

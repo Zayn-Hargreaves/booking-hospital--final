@@ -19,7 +19,7 @@ const FeedbackForm = () => {
                 toast.error("Yêu cầu nhập đánh giá và nhận xét");
             }
     
-            const res = await fetch(`http://localhost:5000/api/v1/doctors/${id}/reviews`, {
+            const res = await fetch(`https://booking-hospital-final.onrender.com/api/v1/doctors/${id}/reviews`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

@@ -3,7 +3,7 @@ import useFetchData from "../../hooks/useFetchData.js"
 import Error from "../../components/Error/Error.jsx"
 import Loading from "../../components/Loader/Loading.jsx";
 const DoctorList = () => {
-    const { data:doctors, loading, error } = useFetchData(`http://localhost:5000/api/v1/doctors`)
+    const { data:doctors, loading, error } = useFetchData(`https://booking-hospital-final.onrender.com/api/v1/doctors`)
     return (
         <>
             {loading && <Loading />}

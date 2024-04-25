@@ -33,7 +33,7 @@ const Profiles = ({user}) => {
         event.preventDefault();
         setLoading(true);
         try {
-            const res = await fetch(`http://localhost:5000/api/v1/users/${user._id}`,{
+            const res = await fetch(`https://booking-hospital-final.onrender.com/api/v1/users/${user._id}`,{
                 method:'put',
                 headers:{
                     'Content-Type':'application/json',

@@ -3,7 +3,7 @@ import DoctorCard from "../../components/Doctors/DoctorCard"
 import Loading from "../../components/Loader/Loading"
 import Error from "../../components/Error/Error"
 const MyBookings = () => {
-    const { data: appointments, loading, error } = useFetchData(`http://localhost:5000/api/v1/users/appointments/my-appointments`)
+    const { data: appointments, loading, error } = useFetchData(`https://booking-hospital-final.onrender.com/api/v1/users/appointments/my-appointments`)
     return <div>
         {loading && <Loading />}
         {error && <Error errorMess={error} />}

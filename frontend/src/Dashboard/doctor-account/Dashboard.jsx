@@ -8,7 +8,7 @@ import DoctorAbout from "../../components/Doctors/DoctorAbout.jsx"
 import Profile from "./Profile.jsx";
 import Appointments from "./Appointments.jsx";
 const Dashboard = () => {
-    const { data, loading, error } = useGetProfile(`http://localhost:5000/api/v1/doctors/profile/me`);
+    const { data, loading, error } = useGetProfile(`https://booking-hospital-final.onrender.com/api/v1/doctors/profile/me`);
     const [tab, setTab] = useState("overview");
 
     return (   
