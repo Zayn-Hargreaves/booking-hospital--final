@@ -9,6 +9,7 @@ const Tabs = ({ tab, setTab }) => {
         dispatch({ type: "LOGOUT" })
         navigate('/')
     }
+    
     return (
         <div >
             <span className="lg:hidden">

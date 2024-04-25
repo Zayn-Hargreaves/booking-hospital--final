@@ -11,8 +11,8 @@ const MyAccount = () => {
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" })
     }
-    const { data: userData, loading, error } = useGetProfile(`https://booking-hospital-final.onrender.com/api/v1/users/profile/me`)
     const [tab, setTab] = useState('bookings')
+    const { data: userData, loading, error } = useGetProfile(`https://booking-hospital-final.onrender.com/api/v1/users/profile/me`)
     const handleDeleteAcount = async () => {
         const confirmDelete = window.confirm("Bạn có chắc chắn muốn xóa tài khoản không?");
         if (confirmDelete) {
