@@ -13,6 +13,7 @@ export const authenticate = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
     req.userId = decoded.id;
     req.role = decoded.role;
+    // console.log("authen")
     next(); // Chuyển tiếp cho middleware tiếp theo nếu mã thông báo hợp lệ
   } catch (error) {
     if (error.name === "TokenExpiredError") {
@@ -39,7 +40,8 @@ export const restrict = (roles) => async (req, res, next) => {
     if (!roles.includes(user.role)) {
       return res.status(401).json({ success: false, message: "Bạn không được ủy quyền để thực hiện hành động này" });
     }
-    console.log("khong phai loi o restrict")
+    // console.log("restric")
+    // console.log(req)
     next(); // Cho phép tiếp tục đến middleware hoặc controller tiếp theo
   } catch (error) {
     console.error("Lỗi trong quá trình xác thực người dùng:", error);

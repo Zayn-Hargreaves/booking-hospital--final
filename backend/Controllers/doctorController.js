@@ -1,6 +1,7 @@
 import Booking from "../models/BookingSchema.js"
 import Doctor from "../models/DoctorSchema.js"
 
+
 export const updateDoctor = async (req, res) => {
     const id = req.params.id;
     try {
@@ -62,5 +63,26 @@ export const getDoctorProfile = async (req, res) => {
         res.status(200).json({ success: true, message: "Thông tin hồ sơ đang được tải", data: { ...rest, appointments } });
     } catch (error) {
         res.status(500).json({ success: false, message: "Đã có lỗi xảy ra, không thể lấy thông tin" });
+    }
+};
+
+export const UpdateStatusAppointment = async (req, res) => {
+    const { id } = req.params;
+    const { status, isPaid } = req.body;
+    try {
+        const appointment = await Booking.findById(id);
+
+        if (!appointment) {
+            return res.status(404).json({ success: false, message: 'Appointment not found' });
+        }
+
+        if (status) appointment.status = status;
+        if (isPaid !== undefined) appointment.isPaid = isPaid;
+
+        const updatedAppointment = await appointment.save();
+        res.status(200).json({ success: true, message: 'Appointment updated successfully', data: updatedAppointment });
+    } catch (error) {
+        console.error('Error updating appointment:', error);
+        res.status(500).json({ success: false, message: 'Failed to update appointment' });
     }
 };

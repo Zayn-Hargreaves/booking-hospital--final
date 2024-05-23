@@ -45,6 +45,7 @@ app.use('/api/v1/users', userRouter)
 app.use('/api/v1/doctors', doctorRouter)
 app.use('/api/v1/reviews', reviewRouter)
 app.use('/api/v1/bookings', bookingRouter)
+
 // Bắt đầu máy chủ và kết nối đến MongoDB
 app.listen(port, () => {
     connectDB();

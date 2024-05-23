@@ -12,7 +12,7 @@ export const getCheckoutSession = async(req, res) =>{
         const session = await stripe.checkout.sessions.create({
             payment_method_types:['card'],
             mode:'payment',
-            success_url:`https://statuesque-arithmetic-a19b12.netlify.app/checkout-success`,
+            success_url:`http://localhost:5173/checkout-success`,
             cancel_url:`${req.protocol}://${req.get('host')}/doctors/${doctor._id}`,
             customer_email:user?.email ? user.email : '',
             client_reference_id:req.params.doctorId,
@@ -39,6 +39,8 @@ export const getCheckoutSession = async(req, res) =>{
         })
         console.log(booking)
         await booking.save()
+        doctor.appointments.push(booking._id);
+        await doctor.save();
         res.status(200).json({success:true, message:"Thanh toán thành công", session})
     } catch (error) {
         console.log(error)

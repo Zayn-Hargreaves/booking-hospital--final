@@ -32,7 +32,7 @@ const Signup = () => {
         event.preventDefault();
         setLoading(true);
         try {
-            const res = await fetch(`https://booking-hospital-final.onrender.com/api/v1/auth/register`,{
+            const res = await fetch(`http://localhost:5000/api/v1/auth/register`,{
                 method:'post',
                 headers:{
                     'Content-Type':'application/json'
@@ -115,6 +115,7 @@ const Signup = () => {
                                     className="text-textColor font-semibold text-[15px] leading-7 px-4 py-3 focus:outline-none">
                                     <option value="patient">Bệnh nhân</option>
                                     <option value="doctor">Bác sĩ</option>
+                                    <option value="appointment coordinator">Nhân viên y tế</option>
                                 </select>
                             </label>
                             <label htmlFor="" className="text-headingColor font-bold text-[16px] leading-7">
