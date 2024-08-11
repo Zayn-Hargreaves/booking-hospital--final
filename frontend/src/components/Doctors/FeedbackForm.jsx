@@ -27,7 +27,6 @@ const FeedbackForm = () => {
                 },
                 body: JSON.stringify({ rating, reviewText }),
             });
-            console.log(res)
             const result = await res.json();
     
             if (!res.ok) {
