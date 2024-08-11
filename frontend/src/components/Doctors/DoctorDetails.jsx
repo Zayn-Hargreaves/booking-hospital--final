@@ -7,10 +7,12 @@ import useFetchData from "../../hooks/useFetchData.js"
 import Loader from "../../components/Loader/Loading.jsx"
 import Error from "../../components/Error/Error.jsx"
 import { useParams } from "react-router-dom";
+import dotenv from "dotenv"
+dotenv.config()
 const DoctorDetails = () => {
     const [tab, setTab] = useState('about')
     const {id}= useParams()
-    const { data:doctor, loading, error } = useFetchData(`http://localhost:5000/api/v1/doctors/${id}`)
+    const { data:doctor, loading, error } = useFetchData(`${process.env.CLIENTWEB}/api/v1/doctors/${id}`)
     const {name, qualifications, experiences, timeSlots, reviews, bio, about, averageRating, totalRating, specialization, ticketPrice, photo} = doctor
     return (
         <section>
